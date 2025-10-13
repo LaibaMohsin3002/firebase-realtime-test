@@ -31,4 +31,6 @@ jobs:
       - name: Run fetch script
         env:
           FIREBASE_KEY_PATH: firebase-key.json
-        run: python main.py
+        run: python fetchPrices.py
+
+        
