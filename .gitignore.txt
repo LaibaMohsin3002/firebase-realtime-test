@@ -1,7 +1,0 @@
-# Ignore Firebase keys and sensitive JSON
-firebase-key.json
-*.json
-
-# Ignore Python cache
-__pycache__/
-*.pyc
