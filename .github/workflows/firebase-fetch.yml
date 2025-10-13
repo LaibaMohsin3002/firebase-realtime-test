@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]       # Runs when you push code to main
   schedule:
-    - cron: "0 * * * *"      # Runs every hour
+    - cron: "0 19 * * *"      # Runs every midnight
   workflow_dispatch:          # Allows manual run
 
 jobs:
