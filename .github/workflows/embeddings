@@ -1,0 +1,31 @@
+name: Firestore Embedding Generator 🤖
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # runs every 12 hours
+  workflow_dispatch:  # allows manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository 🧩
+        uses: actions/checkout@v4
+
+      - name: Set up Python 🐍
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies 📦
+        run: |
+          pip install firebase-admin sentence-transformers torch
+
+      - name: Add Firebase credentials 🔐
+        env:
+          FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+        run: echo "$FIREBASE_KEY" > firebase-key.json
+
+      - name: Run embedding script 🚀
+        run: python embeddings_generator.py
